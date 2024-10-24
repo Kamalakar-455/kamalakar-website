@@ -1,0 +1,466 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080808;
+    color: #fff;
+}
+
+/* Header Section */
+.header {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    padding: 10px 10%;
+    position: relative;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.5s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Header Text Styles */
+.header-text {
+    text-align: center;
+    margin-top: 20%;
+    font-size: 30px;
+}
+
+.header-text h1 {
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.header-text h1 span {
+    color: #ff004f;
+}
+
+/* About Me Section */
+.about {
+    padding: 80px 0;
+    color: #ababab;
+}
+
+.about img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1 {
+    flex-basis: 35%;
+}
+
+.about-col-2 {
+    flex-basis: 60%;
+}
+
+/* Subtitle Styles */
+.sub-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Tab Styles */
+.tab-titles {
+    display: flex;
+    margin: 20px 0 40px;
+}
+
+.tab-links {
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-links::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: width 0.5s ease;
+}
+
+.tab-links.active-link::after {
+    width: 50%;
+}
+
+.tab-contents {
+    display: none;
+}
+
+.tab-contents.active-tab {
+    display: block;
+}
+
+.tab-contents ul li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.tab-contents ul li span {
+    color: #ff004f;
+    font-size: 14px;
+}
+
+/* Services Section */
+#services {
+    padding: 30px 0;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.service-list div {
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.service-list div h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.service-list div a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.service-list div:hover {
+    background-color: #ff004f;
+    transform: translateY(-10px);
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 50px 0;
+}
+
+.container .card {
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.container .card .face {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    transition: transform 0.5s ease;
+}
+
+.container .card .face.face1 {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.container .card .face.face2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff004f;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.container .card .face.face3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #007bff; /* Change this color as needed */
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.container .card:hover .face.face2 {
+    transform: translateY(0);
+}
+
+.container .card:hover .face.face3 {
+    transform: translateY(0);
+}
+
+.container .card .face.face2 .content,
+.container .card .face.face3 .content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.container .card:hover .face.face2 .content {
+    opacity: 1;
+}
+
+.container .card:hover .face.face3 .content {
+    opacity: 1;
+}
+
+.container .card .face.face1 .content img {
+    max-width: 150px;
+}
+
+.container .card .face.face1 .content h3 {
+    margin: 10px 0 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.container .card:hover .face.face1 .content h3 {
+    color: #111;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 0;
+}
+
+/* Footer Section */
+footer {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .container {
+        padding: 10px 5%;
+    }
+
+    .header-text h1 {
+        font-size: 48px;
+    }
+
+    .sub-title {
+        font-size: 48px;
+    }
+
+    .tab-links {
+        margin-right: 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .header-text h1 {
+        font-size: 36px;
+    }
+
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+
+    .container .card {
+        width: 100%;
+    }
+
+    .sub-title {
+        font-size: 36px;
+    }
+}
+
+/* Adjusting Education Images */
+#education ul li img {
+    width: 70px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#education ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.contact-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #ff004f;
+}
+#contact {
+    padding: 50px 0; /* Space around contact section */
+}
+
+#contact ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+#contact ul li {
+    display: flex; /* Use flexbox to align emoji and text */
+    align-items: center; /* Center vertically */
+    margin: 10px 0; /* Space between items */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Font size */
+}
+
+#contact ul li a {
+    color: #ff004f; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+#contact ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* Adjust container padding */
+    .container {
+        padding: 10px 5%;
+    }
+
+    /* Adjust header text size for small screens */
+    .header-text {
+        font-size: 24px;
+    }
+
+    .header-text h1 {
+        font-size: 36px;
+    }
+
+    /* Reduce margins for navigation items */
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    /* About section image size */
+    .about img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Row layout for about section */
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust service list grid */
+    .service-list {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /* Portfolio Cards */
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    /* Adjust Portfolio section for single column */
+    #portfolio .container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Section alignment */
+    #contact ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+}
+
